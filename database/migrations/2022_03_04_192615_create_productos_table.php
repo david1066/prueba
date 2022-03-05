@@ -18,8 +18,9 @@ class CreateProductosTable extends Migration
             $table->string('nombre_producto',100)->nullable();
             $table->text('descripcion')->nullable();
             $table->float('precio', 8, 2)->nullable();
-            $table->unsignedInteger('estado_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('estado_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->date('fecha_publicacion');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
