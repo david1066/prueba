@@ -18,8 +18,11 @@ Route::get('/', function () {
 });
 /*  */
 
-Route::middleware(['peticion'])->group(function () { 
+
 
     Auth::routes();
-    Route::get('/admin/productos', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.productos');
- });
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+    Route::get('/create', function () {
+        return view('auth.create');
+    });

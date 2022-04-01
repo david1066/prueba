@@ -17,7 +17,7 @@ https://nodejs.org/es/
 
 2. Clonar proyecto
 
-git clone https://github.com/david1066/prueba_teactiva.git
+git clone 
 
 3. Ejectuar los siguientes comandos para instalar las dependencias  
 
@@ -30,12 +30,12 @@ Nota: sí npm run dev da errores, entonces correr los siguientes comandos
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 npm run dev
 
-4. Revisamos el archivo .env que tenga correctamente las credenciales (usuario y contraseña)y creamos una base de datos con el nombre teactiva directamente con el administrador de base de datos.
+4. Revisamos el archivo .env que tenga correctamente las credenciales (usuario y contraseña)y creamos una base de datos con el nombre laravel directamente con el administrador de base de datos.
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=teactiva
+DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
 
