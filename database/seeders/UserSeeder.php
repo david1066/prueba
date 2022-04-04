@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
         'password'=>Hash::make('12345678'),
         'role_user'=>'Admin']);
         //usuario normales
-        for($i=1000;$i<=1000;$i++){
+        for($i=1000;$i<=2000;$i++){
 
             User::create([ 'primer_nombre'=>'nombre'.($i-999),
             'segundo_nombre'=>'nombre2'.($i-999),
