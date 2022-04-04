@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
+                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Usuario de acceso en el README.md') }}</label>
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
@@ -38,6 +38,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
 
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">

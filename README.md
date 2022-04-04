@@ -43,10 +43,19 @@ DB_PASSWORD=
 
 php artisan migrate
 
-6. Corremos el proyecto con el servidor que viene en composer
+6. Ejecutamos la migraciones que nos creara las tablas.
+
+php artisan db:seed --class=UserSeeder
+
+7. Corremos el proyecto con el servidor que viene en composer
 
 php artisan serve
 
-7. en el navegador abrimos la ruta
+8. en el navegador abrimos la ruta
 
 http://127.0.0.1:8000
+
+9. usuario de acceso
+
+usuario: davinchi1066@hotmail.com
+contraseña: 12345678

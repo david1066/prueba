@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Validation\Rule;
 class RegisterController extends Controller
 {
     /*
@@ -49,13 +49,19 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //validacion tipo_documento y documento unicos
+        $uniqueRule =  Rule::unique('users')->where(function ($query) use 
+                    ($data){
+                        return $query->where('tipo_documento', $data['tipo_documento']??'')
+                        ->where('documento', $data['documento']??'');
+                    });
         return Validator::make($data, [
             'primer_nombre' => ['required', 'string', 'max:255'],
             'segundo_nombre' => ['required', 'string', 'max:255'],
             'primer_apellido' => ['required', 'string', 'max:255'],
             'segundo_apellido' => ['required', 'string', 'max:255'],
-            'tipo_documento' => ['required', 'integer', 'max:1'],
-            'documento' => ['required', 'integer'],
+            'tipo_documento' => ['required', 'integer',$uniqueRule],
+            'documento' => ['required', 'digits_between:4,10','integer'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -69,6 +75,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $role_user='';
+        if(isset( $data['role_user'])){
+            $role_user='Admin';
+        }
+       /*  dd($data); */
         return User::create([
             'primer_nombre' => $data['primer_nombre'],
             'segundo_nombre' => $data['segundo_nombre'],
@@ -77,6 +89,7 @@ class RegisterController extends Controller
             'tipo_documento' => $data['tipo_documento'],
             'documento' => $data['documento'],
             'email' => $data['email'],
+            'role_user' => $role_user,
             'password' => Hash::make($data['password']),
         ]);
     }

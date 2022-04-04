@@ -24,15 +24,17 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($users as $i=>$user)
+                              @if($i!=0)
                                 <tr>
                                 <th >{{$user->primer_nombre}}</th>
                                 <td>{{$user->segundo_apellido}}</td>
-                                <td>{{$user->tipo_documento}}</td>
+                                <td>{{$tipo_documento[$user->tipo_documento]}}</td>
                                 <td>{{$user->documento}}</td>
                                 <td>{{$user->email}}</td>
                               </tr>
-                             
+
+                             @endif
                             @endforeach
                          
                         </tbody>

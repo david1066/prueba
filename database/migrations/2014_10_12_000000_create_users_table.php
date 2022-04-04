@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('segundo_apellido');
             $table->integer('tipo_documento');
             $table->integer('documento');
+            $table->string('role_user');
          
         /*     $table->string('name'); */
             $table->string('email')->unique();
